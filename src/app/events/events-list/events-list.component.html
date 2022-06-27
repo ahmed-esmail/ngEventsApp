@@ -1,9 +1,7 @@
 <h1 id="Header">Upcoming Angular Events</h1>
-<hr>
+<hr />
 <div class="row">
   <div *ngFor="let event of events" class="col-md-5">
-    <app-event-details  [event]="event" >
-    </app-event-details>
+    <app-event-details #eventDetails [event]="event"> </app-event-details>
   </div>
 </div>
-
