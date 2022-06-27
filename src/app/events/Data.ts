@@ -1,5 +1,5 @@
 
-export const EVENTS:any = [
+export const EVENTS = [
   {
     id: 1,
     name: 'Angular Connect',
