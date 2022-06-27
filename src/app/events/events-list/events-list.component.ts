@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {events as eventList} from "../EventsList";
+import {EventService} from "../event.service";
+import {ToastrService} from "../../common/toastr.service";
 
 @Component({
   selector: 'app-events-list',
@@ -9,12 +10,15 @@ import {events as eventList} from "../EventsList";
 export class EventsListComponent implements OnInit {
   events: any;
 
-  constructor() {
-    this.events = eventList;
-  }
+  constructor(private eventService: EventService, private toastr: ToastrService) {
 
+  }
 
   ngOnInit(): void {
+    this.events = this.eventService.getEvents();
   }
 
+  handleEventClick() {
+    this.toastr.success('Event clicked', 'Success');
+  }
 }

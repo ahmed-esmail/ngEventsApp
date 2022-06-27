@@ -2,6 +2,6 @@
 <hr />
 <div class="row">
   <div *ngFor="let event of events" class="col-md-5">
-    <app-event-details #eventDetails [event]="event"> </app-event-details>
+    <app-event-details (click)="handleEventClick()" [event]="event"> </app-event-details>
   </div>
 </div>

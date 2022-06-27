@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
+import {EVENTS} from "./Data";
 
 @Injectable({
   providedIn: 'root'
 })
 export class EventService {
 
-  constructor() { }
+  getEvents() {
+    return EVENTS;
+  }
 }
