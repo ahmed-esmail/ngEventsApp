@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-event-details',
-  templateUrl: './event-details.component.html',
-  styleUrls: ['./event-details.component.scss'],
+  selector: 'app-event-thumbnail',
+  templateUrl: './event-thumbnail.component.html',
+  styleUrls: ['./event-thumbnail.component.scss'],
 })
-export class EventDetailsComponent implements OnInit {
+export class EventThumbnailComponent implements OnInit {
   @Input() event: any;
 
   constructor() {}
