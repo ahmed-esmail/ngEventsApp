@@ -1,6 +1,11 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {EventsListComponent, EventDetailsComponent, CreateEventComponent, EventRouteActivatorGuard} from "./events";
+import {
+  EventsListComponent,
+  EventDetailsComponent,
+  CreateEventComponent,
+  EventRouteActivatorGuard
+} from "./events";
 import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.component";
 
 

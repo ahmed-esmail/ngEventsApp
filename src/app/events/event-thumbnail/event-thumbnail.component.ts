@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {IEvent} from "../../models/IEvent";
 
 @Component({
   selector: 'app-event-thumbnail',
@@ -6,7 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./event-thumbnail.component.scss'],
 })
 export class EventThumbnailComponent implements OnInit {
-  @Input() event: any;
+  @Input() event: IEvent | undefined;
 
   constructor() {
   }
@@ -14,12 +15,4 @@ export class EventThumbnailComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  changeColor() {
-    let isColored = false;
-    if (this.event.price === 800) {
-      isColored = true;
-    }
-
-    return {yellow: isColored, bold: isColored};
-  }
 }
