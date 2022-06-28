@@ -11,3 +11,8 @@
     display: none
   }
 }
+
+li> a.active {
+  color: #fff;
+  background-color: #337ab7;
+}
