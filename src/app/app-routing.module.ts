@@ -1,10 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {EventsListComponent} from "./events/events-list/events-list.component";
-import {EventDetailsComponent} from "./events/event-details/event-details.component";
-import {CreateEventComponent} from "./events/create-event/create-event.component";
+import {EventsListComponent, EventDetailsComponent, CreateEventComponent, EventRouteActivatorGuard} from "./events";
 import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.component";
-import {EventRouteActivatorGuard} from "./events/event-details/event-route-activator.guard";
+
 
 const routes: Routes = [
   {path: "user", loadChildren: () => import("./user/user.module").then(m => m.UserModule) },
