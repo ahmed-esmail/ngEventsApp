@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-event-thumbnail',
@@ -8,9 +8,11 @@ import { Component, Input, OnInit } from '@angular/core';
 export class EventThumbnailComponent implements OnInit {
   @Input() event: any;
 
-  constructor() {}
+  constructor() {
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   changeColor() {
     let isColored = false;
@@ -18,6 +20,6 @@ export class EventThumbnailComponent implements OnInit {
       isColored = true;
     }
 
-    return { yellow: isColored, bold: isColored };
+    return {yellow: isColored, bold: isColored};
   }
 }

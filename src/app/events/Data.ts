@@ -1,4 +1,3 @@
-
 export const EVENTS = [
   {
     id: 1,

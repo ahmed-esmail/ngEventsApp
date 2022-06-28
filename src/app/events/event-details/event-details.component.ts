@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from "../event.service";
 import {ActivatedRoute} from "@angular/router";
 
@@ -10,11 +10,11 @@ import {ActivatedRoute} from "@angular/router";
 export class EventDetailsComponent implements OnInit {
   event: any;
 
-  constructor(private eventService: EventService,private route: ActivatedRoute) {
+  constructor(private eventService: EventService, private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-    let id:number = +this.route.snapshot.params['id'];
+    let id: number = +this.route.snapshot.params['id'];
     this.event = this.eventService.getEvent(id);
   }
 

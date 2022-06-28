@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {EventService} from "../event.service";
 import {ToastrService} from "../../common/toastr.service";
 

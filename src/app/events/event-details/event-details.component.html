@@ -1,5 +1,5 @@
 <div class="container">
-  <img class="event-image" [src]="event?.imageUrl" [alt]="event?.name">
+  <img [alt]="event?.name" [src]="event?.imageUrl" class="event-image">
 
   <div class="row">
     <div class="col-md-11">
@@ -15,8 +15,8 @@
     </div>
     <div class="col-md-6">
       <address>
-        <strong>Address:</strong><br />
-        {{event?.location?.address}}<br />
+        <strong>Address:</strong><br/>
+        {{event?.location?.address}}<br/>
         {{event?.location?.city}}, {{event?.location?.country}}
       </address>
     </div>
