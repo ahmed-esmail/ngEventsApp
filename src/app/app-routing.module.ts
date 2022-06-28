@@ -7,7 +7,7 @@ import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.comp
 import {EventRouteActivatorGuard} from "./events/event-details/event-route-activator.guard";
 
 const routes: Routes = [
-  {path: "events/create", component: CreateEventComponent},
+  {path: "events/create", component: CreateEventComponent, canDeactivate: ["canDeactivateCreateEvent"]},
   {path: "events", component: EventsListComponent},
   {path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivatorGuard]},
   {path: "404", component: NotfoundErrorComponent},

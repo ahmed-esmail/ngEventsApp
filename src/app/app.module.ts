@@ -12,6 +12,7 @@ import {EventDetailsComponent} from './events/event-details/event-details.compon
 import {CreateEventComponent} from './events/create-event/create-event.component';
 import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.component';
 import {EventRouteActivatorGuard} from "./events/event-details/event-route-activator.guard";
+import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import {EventRouteActivatorGuard} from "./events/event-details/event-route-activ
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [EventService, ToastrService, EventRouteActivatorGuard],
+  providers: [EventService, ToastrService, EventRouteActivatorGuard,
+    {provide: "canDeactivateCreateEvent", useValue: CheckDirtyState}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
