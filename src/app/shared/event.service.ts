@@ -13,4 +13,5 @@ export class EventService {
   getEvent(id: number): IEvent| undefined {
     return EVENTS.find(event => event.id === id);
   }
+
 }

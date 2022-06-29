@@ -17,6 +17,7 @@ import {NavComponent} from './nav/nav.component';
 import {ToastrService} from "./common/toastr.service";
 import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.component';
 import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
+import {AuthService} from "./user/auth.service";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [EventService, ToastrService, EventRouteActivatorGuard,
+  providers: [
+    EventService,
+    ToastrService,
+    EventRouteActivatorGuard,
+    AuthService,
     {provide: "canDeactivateCreateEvent", useValue: CheckDirtyState}
   ],
   bootstrap: [AppComponent]
