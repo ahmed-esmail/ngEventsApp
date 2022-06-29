@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   currentUser: any;
-  constructor() { }
+
+  constructor() {
+  }
 
   loginUser(userName: string, password: string) {
     this.currentUser = {
