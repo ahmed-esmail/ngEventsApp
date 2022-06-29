@@ -17,5 +17,18 @@ button {
   white-space: nowrap;
   width: auto;
   margin-right: 10px;
+}
 
+em {
+  float: right;
+  color: #E05C65;
+  padding-left: 10px;
+}
+
+.error input {
+  background-color: #E3C3C5;
+}
+
+.error ::placeholder {
+  color: #e81a1a;
 }

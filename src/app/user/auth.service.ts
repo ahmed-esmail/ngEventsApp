@@ -6,8 +6,6 @@ import {Injectable} from '@angular/core';
 export class AuthService {
   currentUser: any;
 
-  constructor() {
-  }
 
   loginUser(userName: string, password: string) {
     this.currentUser = {
@@ -16,6 +14,7 @@ export class AuthService {
       firstName: 'John',
       lastName: 'papa'
     };
+
   }
 
   isAuthenticated() {

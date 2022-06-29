@@ -2,18 +2,21 @@
   <h1>Edit Your Profile </h1>
   <hr>
   <div class="col-md-4">
-    <form [formGroup]="profileForm" autocomplete="off" (ngSubmit)="handleSave(profileForm.value)" >
-      <div class="form-group">
+    <form (ngSubmit)="handleSave(profileForm.value)" [formGroup]="profileForm" autocomplete="off">
+      <div [ngClass]="{'error': !validateFirstName()}" class="form-group">
         <label for="firstName">First Name:</label>
-        <input formControlName="firstName" id="firstName" type="text" class="form-control" placeholder="First Name..." />
+        <em *ngIf="validateMessage('firstName','required')">Required</em>
+        <em *ngIf="validateMessage('firstName','pattern')">must start with letter</em>
+        <input class="form-control" formControlName="firstName" id="firstName" placeholder="First Name..." type="text"/>
       </div>
-      <div class="form-group">
+      <div [ngClass]="{'error': !validateLastName()}" class="form-group">
         <label for="lastName">Last Name:</label>
-        <input formControlName="lastName" id="lastName" type="text" class="form-control" placeholder="Last Name..." />
+        <em *ngIf="validateMessage('lastName','required')">Required</em>
+        <em *ngIf="validateMessage('lastName','pattern')">must start with letter</em>
+        <input class="form-control" formControlName="lastName" id="lastName" placeholder="Last Name..." type="text"/>
       </div>
-
-      <button type="submit" class="btn btn-primary">Save</button>
-      <button type="button" (click)="handleCancel()" class="btn btn-default">Cancel</button>
+      <button [disabled]="profileForm.invalid" class="btn btn-primary" type="submit">Save</button>
+      <button (click)="handleCancel()" class="btn btn-default" type="button">Cancel</button>
     </form>
   </div>
 </div>
