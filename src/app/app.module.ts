@@ -18,6 +18,7 @@ import {ToastrService} from "./common/toastr.service";
 import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.component';
 import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
 import {AuthService} from "./user/auth.service";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -29,10 +30,11 @@ import {AuthService} from "./user/auth.service";
     CreateEventComponent,
     NotfoundErrorComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        FormsModule
+    ],
   providers: [
     EventService,
     ToastrService,
