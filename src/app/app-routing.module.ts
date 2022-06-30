@@ -4,16 +4,18 @@ import {
   EventsListComponent,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivatorGuard
+  EventRouteActivatorGuard,
+  CreateSessionComponent
 } from "./events";
 import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.component";
 
 
 const routes: Routes = [
   {path: "user", loadChildren: () => import("./user/user.module").then(m => m.UserModule) },
-  {path: "events/create", component: CreateEventComponent, canDeactivate: ["canDeactivateCreateEvent"]},
+  {path: "events/create", component: CreateEventComponent},
   {path: "events", component: EventsListComponent},
   {path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivatorGuard]},
+  {path: "events/session/create", component: CreateSessionComponent},
   {path: "404", component: NotfoundErrorComponent},
   {path: "", redirectTo: "/events", pathMatch: "full"},
 ];
