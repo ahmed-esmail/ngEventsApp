@@ -10,7 +10,8 @@ import {
   EventRouteActivatorGuard,
   CreateEventComponent,
   EventService,
-  EventDetailsComponent
+  EventDetailsComponent,
+  CreateSessionComponent,
 } from './events';
 
 import {NavComponent} from './nav/nav.component';
@@ -18,7 +19,7 @@ import {ToastrService} from "./common/toastr.service";
 import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.component';
 import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
 import {AuthService} from "./user/auth.service";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -28,13 +29,15 @@ import {FormsModule} from "@angular/forms";
     NavComponent,
     EventDetailsComponent,
     CreateEventComponent,
-    NotfoundErrorComponent
+    NotfoundErrorComponent,
+    CreateSessionComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
   providers: [
     EventService,
     ToastrService,
