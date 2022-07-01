@@ -1,0 +1,9 @@
+
+<div (click)="ShowContent = !ShowContent" class="well pointable">
+  <h3 class="well-title">{{title}}</h3>
+  <div *ngIf="ShowContent">
+    <ng-content>
+    </ng-content>
+  </div>
+
+</div>
