@@ -10,24 +10,33 @@ export class SessionListComponent implements OnChanges {
 
   @Input() sessions: ISession[] | [] = [];
   @Input() filterBy: string = 'all'
-  private visibleSessions: ISession[] | [] = [];
+  @Input() sortBy: string = 'votes'
+  visibleSessions: ISession[] | [] = [];
 
-  constructor() { }
-
-
-  addSession(session: ISession) {
-
+  constructor() {
   }
 
+
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.sessions){
+    if (this.sessions) {
       this.filterSessions(this.filterBy)
+      this.sortBy === 'name' ? this.visibleSessions.sort(this.sortByNameAsc) : this.visibleSessions.sort(this.sortByVotesDesc)
     }
+  }
+
+  private sortByVotesDesc(s1: ISession, s2: ISession) {
+    return s2.voters.length - s1.voters.length
+  }
+
+  private sortByNameAsc(s1 : ISession, s2 : ISession) {
+    return s1.name.localeCompare(s2.name)
   }
 
   private filterSessions(filterBy: string) {
     if (filterBy === 'all') {
-      this.visibleSessions = this.sessions?.slice(0)
+      this.visibleSessions = this.sessions.slice(0)
+    } else {
+      this.visibleSessions = this.sessions.filter(session => session.level.toLocaleLowerCase() === filterBy)
     }
   }
 }
