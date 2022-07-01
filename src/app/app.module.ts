@@ -20,6 +20,8 @@ import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.comp
 import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
 import {AuthService} from "./user/auth.service";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+import { CollapsibleWellComponent } from './events/common/collapsible-well/collapsible-well.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     EventDetailsComponent,
     CreateEventComponent,
     NotfoundErrorComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent,
+    CollapsibleWellComponent
   ],
   imports: [
     BrowserModule,
