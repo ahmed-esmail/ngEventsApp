@@ -12,7 +12,7 @@ import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.comp
 
 const routes: Routes = [
   {path: "user", loadChildren: () => import("./user/user.module").then(m => m.UserModule) },
-  {path: "events/create", component: CreateEventComponent},
+  {path: "events/create", component: CreateEventComponent , canDeactivate: ["canDeactivateCreateEvent"]},
   {path: "events", component: EventsListComponent},
   {path: "events/:id", component: EventDetailsComponent, canActivate: [EventRouteActivatorGuard]},
   {path: "events/session/create", component: CreateSessionComponent},

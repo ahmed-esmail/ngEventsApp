@@ -1,6 +1,7 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Inject, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {ISession} from "../../../models/ISession";
+import {Toastr, TOSTER_TOKEN} from "../../../common/toastr.service";
 
 @Component({
   selector: 'app-create-session',
@@ -35,21 +36,29 @@ export class CreateSessionComponent implements OnInit {
     })
   }
 
-  saveSession(formValues) {
-    let session:ISession = {
-      id: undefined,
-      name: formValues.name,
-      duration: +formValues.duration,
-      level: formValues.level,
-      presenter: formValues.presenter,
-      abstract: formValues.abstract,
-      voters: []
-    }
-    this.saveNewSession.emit(session)
+  constructor(@Inject(TOSTER_TOKEN) private toastr: Toastr) {
   }
 
 
-  cancle() {
+  saveSession(formValues) {
+    if (this.newSessionForm.valid) {
+      let session: ISession = {
+        id: undefined,
+        name: formValues.name,
+        duration: +formValues.duration,
+        level: formValues.level,
+        presenter: formValues.presenter,
+        abstract: formValues.abstract,
+        voters: []
+      }
+      this.saveNewSession.emit(session)
+    } else {
+      this.toastr.success('Please fill in the form correctly')
+    }
+
+  }
+
+  cancel() {
     this.cancelAddSession.emit()
   }
 }

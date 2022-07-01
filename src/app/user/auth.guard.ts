@@ -1,14 +1,16 @@
-import {Injectable} from '@angular/core';
+import {Inject, Injectable} from '@angular/core';
 import {ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree} from '@angular/router';
 import {Observable} from 'rxjs';
 import {AuthService} from "./auth.service";
-import {ToastrService} from "../common/toastr.service";
+import {Toastr, TOSTER_TOKEN} from "../common/toastr.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
+  constructor(private authService: AuthService,
+              private router: Router,
+              @Inject(TOSTER_TOKEN) private toastr: Toastr) {
   }
 
   canActivate(
@@ -18,8 +20,8 @@ export class AuthGuard implements CanActivate {
     if (this.authService.isAuthenticated()) {
       return true;
     }
+    this.toastr.info('You must be logged in to view this page')
     this.router.navigate(['/user/login']);
-    this.toastr.error('You must be logged in to view this page.');
     return false;
   }
 

@@ -9,9 +9,9 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div><strong>Date:</strong> {{event?.date}}</div>
-      <div><strong>Time:</strong> {{event?.time}}</div>
-      <div><strong>Price:</strong> {{event?.price| currency}}</div>
+      <div><strong>Date: </strong> {{event?.date | date}}</div>
+      <div><strong>Time: </strong> {{event?.time}}</div>
+      <div><strong>Price: </strong> {{event?.price| currency:'USD'}}</div>
     </div>
     <div class="col-md-6" *ngIf="event?.location">
       <address>
@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-md-2">
-      <a class="btn btn-info" (click)="addMode = !addMode">Add Session</a>
+      <a class="btn btn-info" (click)="addMode = !addMode">{{!addMode ? "Add Session": "Session List"}}</a>
     </div>
   </div>
   <app-session-list *ngIf="!addMode" [sessions]="event?.sessions"></app-session-list>

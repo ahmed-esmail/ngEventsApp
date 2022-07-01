@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {EventService} from "../../shared/event.service";
-import {ToastrService} from "../../common/toastr.service";
+import {EventService} from "../../shared";
 import {IEvent} from "../../models/IEvent";
 
 @Component({
@@ -11,7 +10,7 @@ import {IEvent} from "../../models/IEvent";
 export class EventsListComponent implements OnInit {
   events: IEvent[] | undefined;
 
-  constructor(private eventService: EventService, private toastr: ToastrService) {
+  constructor(private eventService: EventService) {
 
   }
 
@@ -20,6 +19,6 @@ export class EventsListComponent implements OnInit {
   }
 
   handleEventClick() {
-    this.toastr.success('Event clicked', 'Success');
+
   }
 }
