@@ -1,9 +1,10 @@
 
 <div (click)="ShowContent = !ShowContent" class="well pointable curved-well">
-  <h3 class="well-title">{{title}}</h3>
+
+  <ng-content select="[well-title]">
+  </ng-content>
   <div *ngIf="ShowContent">
-    <ng-content>
+    <ng-content select="[well-body]">
     </ng-content>
   </div>
-
 </div>
