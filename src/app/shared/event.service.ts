@@ -10,8 +10,8 @@ export class EventService {
     return EVENTS;
   }
 
-  getEvent(id: number): IEvent| undefined {
-    return EVENTS.find(event => event.id === id);
+  getEvent(id: number): IEvent {
+    return EVENTS.find(event => event.id === id) as IEvent;
   }
 
   saveEvent(event) {
