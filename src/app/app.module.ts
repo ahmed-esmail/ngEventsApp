@@ -4,7 +4,8 @@ import {BrowserModule} from '@angular/platform-browser';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 
-declare let toastr: Toastr;
+const toastr: Toastr = window['toastr'];
+const jQuery = window['$'];
 
 import {
   EventsListComponent,
@@ -17,7 +18,7 @@ import {
 } from './events';
 
 import {NavComponent} from './nav/nav.component';
-import {Toastr, TOSTER_TOKEN} from "./common/toastr.service";
+import {Toastr, TOSTER_TOKEN, JQuery_Token, ModalTriggerDirective} from "./common";
 import {NotfoundErrorComponent} from './error/notfound-error/notfound-error.component';
 import {CheckDirtyState} from "./events/create-event/CheckDirtyState";
 import {AuthService} from "./user/auth.service";
@@ -25,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 import { CollapsibleWellComponent } from './events/common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './events/common/duration.pipe';
+import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { DurationPipe } from './events/common/duration.pipe';
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
+    ModalTriggerDirective,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +53,7 @@ import { DurationPipe } from './events/common/duration.pipe';
   providers: [
     EventService,
     {provide: TOSTER_TOKEN, useValue: toastr},
+    {provide: JQuery_Token, useValue: jQuery},
     EventRouteActivatorGuard,
     AuthService,
     {provide: "canDeactivateCreateEvent", useValue: CheckDirtyState}
