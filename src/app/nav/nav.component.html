@@ -31,14 +31,24 @@
           </li>
         </ul>
       </div>
-      <form class="navbar-form navbar-right" id="searchForm">
+      <form (ngSubmit)="searchSessions(searchTerm)" class="navbar-form navbar-right" id="searchForm">
         <div class="form-group">
-          <input class="form-control" placeholder="Search Sessions" type="text">
+          <input [(ngModel)]="searchTerm" class="form-control" name="searchTerm" placeholder="Search Sessions" type="text">
         </div>
-        <button class="btn btn-info">
+        <button class="btn btn-info" appModalTrigger>
           Search
         </button>
       </form>
     </div>
   </div>
 </div>
+
+<app-simple-modal title="Matching Sessions">
+  <div class="list-group">
+    <a class="list-group-item" *ngFor="let session of foundSessions" [routerLink]="['/events', session.eventId]">
+      <h4 class="list-group-item-heading">{{session.name}}</h4>
+      <p class="list-group-item-text">{{session.presenter}}</p>
+    </a>
+  </div>
+</app-simple-modal>
+
