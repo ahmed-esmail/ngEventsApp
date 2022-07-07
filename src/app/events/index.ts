@@ -5,3 +5,5 @@ export * from "./event-details/event-details.component";
 export * from "../shared/index";
 export * from "./event-details/event-route-activator.guard"
 export * from "./event-details/create-session/create-session.component";
+export * from "./event-details/upvote/upvote.component"
+export * from "./event-details/voter.service"

@@ -8,7 +8,7 @@ import {IEvent} from "../../models/IEvent";
   styleUrls: ['./events-list.component.scss']
 })
 export class EventsListComponent implements OnInit {
-  events: IEvent[] | undefined;
+  events!: IEvent[];
 
   constructor(private eventService: EventService) {
 
