@@ -15,7 +15,10 @@ export class EventsListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.events = this.eventService.getEvents();
+    this.eventService.getEvents().subscribe({
+      next: value => this.events = value,
+      error: err => console.log(err)
+    })
   }
 
   handleEventClick() {
