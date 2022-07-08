@@ -10,12 +10,13 @@ const jQuery = window['$'];
 import {
   EventsListComponent,
   EventThumbnailComponent,
-  EventRouteActivatorGuard,
   CreateEventComponent,
   EventService,
   EventDetailsComponent,
   CreateSessionComponent,
-  UpvoteComponent
+  UpvoteComponent,
+  LocationValidatorDirective,
+  EventResolver
 } from './events';
 
 import { NavComponent } from './nav/nav.component';
@@ -33,6 +34,7 @@ import { SessionListComponent } from './events/event-details/session-list/sessio
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './common/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -50,14 +52,21 @@ import { SimpleModalComponent } from './common/simple-modal/simple-modal.compone
     SimpleModalComponent,
     ModalTriggerDirective,
     UpvoteComponent,
+    LocationValidatorDirective,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
   providers: [
     EventService,
     { provide: TOSTER_TOKEN, useValue: toastr },
     { provide: JQuery_Token, useValue: jQuery },
-    EventRouteActivatorGuard,
     AuthService,
+    EventResolver,
     { provide: 'canDeactivateCreateEvent', useValue: CheckDirtyState },
   ],
   bootstrap: [AppComponent],
