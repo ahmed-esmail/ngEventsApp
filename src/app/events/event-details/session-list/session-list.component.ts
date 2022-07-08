@@ -16,7 +16,7 @@ export class SessionListComponent implements OnChanges {
   @Input() sortBy: string = 'votes'
   visibleSessions: ISession[] | [] = [];
 
-  constructor(private auth: AuthService, private voterService: VoterService) {
+  constructor(public auth: AuthService, private voterService: VoterService) {
 
   }
 
@@ -54,7 +54,7 @@ export class SessionListComponent implements OnChanges {
       this.visibleSessions.sort(this.sortByVotesDesc)
   }
 
-  userHasVoted(session: ISession) {
+  userHasVoted(session: ISession): boolean {
     return this.voterService.userHasVoted(session, this.auth.currentUser.userName)
   }
 }
