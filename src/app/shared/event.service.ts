@@ -1,5 +1,4 @@
 import { EventEmitter, Injectable } from '@angular/core';
-import { EVENTS } from '../events/Data';
 import { IEvent } from '../models/IEvent';
 import { ISession } from '../models/ISession';
 import {catchError, Observable, of, tap, throwError} from "rxjs";
