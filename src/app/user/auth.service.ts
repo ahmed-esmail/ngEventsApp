@@ -35,8 +35,15 @@ export class AuthService {
     return !!this.currentUser;
   }
 
-  updateCurrentUser(firstName: string, lastName: string) {
-    this.currentUser.firstName = firstName;
-    this.currentUser.lastName = lastName;
+  updateCurrentUser(firstname: string, lastname: string) {
+    this.currentUser.firstName = firstname;
+    this.currentUser.lastName = lastname;
+
+    let options = {headers: new HttpHeaders({'Content-type': 'application/json'})}
+    return this.http.put(`/api/users/${this.currentUser.id}`, this.currentUser, options);
+  }
+
+  public signOut(): void {
+    window.sessionStorage.clear();
   }
 }
