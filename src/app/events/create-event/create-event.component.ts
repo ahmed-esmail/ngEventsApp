@@ -12,11 +12,11 @@ export class CreateEventComponent {
   constructor(private router: Router, private eventService:EventService) {}
 
   saveEvent(formValues) {
-    if (formValues.isValid) {
-      this.eventService.saveEvent(formValues)
-      this.isDirty = false
-      this.router.navigate(['/events'])
-    }
+      this.eventService.saveEvent(formValues).subscribe(()=>{
+        this.isDirty = false
+        this.router.navigate(['/events'])
+        console.log("Saved")
+      })
   }
 
   cancel() {

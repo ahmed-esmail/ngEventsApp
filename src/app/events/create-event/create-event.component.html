@@ -21,7 +21,7 @@
     <div class="form-group" [ngClass]="{'error': newEventForm.controls.price?.invalid && newEventForm.controls.price?.touched}">
       <label for="eventPrice">Event Price:</label>
       <em *ngIf="newEventForm.controls.price?.invalid && (newEventForm.controls.price?.touched)">Required</em>
-      <input (ngModel)="newEvent.price" name="price" required id="eventPrice" type="text" type="number" class="form-control" placeholder="event price..." />
+      <input min="0" (ngModel)="newEvent.price" name="price" required id="eventPrice" type="text" type="number" class="form-control" placeholder="event price..." />
     </div>
 
     <div ngModelGroup="location" #locationGroup="ngModelGroup" appLocationValidator>
@@ -49,7 +49,7 @@
       <em *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched && newEventForm.controls.imageUrl?.errors?.required">Required</em>
       <em *ngIf="newEventForm.controls.imageUrl?.invalid && newEventForm.controls.imageUrl?.touched  && newEventForm.controls.imageUrl?.errors?.pattern">Must be a png or jpg url</em>
       <input (change)="locationGroup.control.controls.address.updateValueAndValidity()" (ngModel)="newEvent.imageUrl" name="imageUrl" required pattern=".*\/.*.(png|jpg)" id="imageUrl" type="text" class="form-control" placeholder="url of image..." />
-      <img width="100px" [src]="newEventForm.controls.imageUrl.value" *ngIf="newEventForm.controls.imageUrl?.valid" />
+      <img style="margin-top: 10px" width="150px" [src]="newEventForm.controls.imageUrl.value" *ngIf="newEventForm.controls.imageUrl?.valid" />
     </div>
 
     <button type="submit" [disabled]="newEventForm.invalid" class="btn btn-primary">Save</button>

@@ -8,11 +8,13 @@ import {
 } from "./events";
 import {NotfoundErrorComponent} from "./error/notfound-error/notfound-error.component";
 import {AuthGuard} from "./user/auth.guard";
+import {EventEditComponent} from "./events/event-edit/event-edit.component";
 
 
 const routes: Routes = [
   {path: "user", loadChildren: () => import("./user/user.module").then(m => m.UserModule) },
   {path: "events/create", component: CreateEventComponent , canDeactivate: ["canDeactivateCreateEvent"]},
+  {path: "events/edit/:id", component: EventEditComponent},
   {path: "events", component: EventsListComponent},
   {path: "events/:id", component: EventDetailsComponent, resolve: {event: EventResolver}},
   {path: "events/session/create", component: CreateSessionComponent},

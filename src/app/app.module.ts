@@ -35,6 +35,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-
 import { DurationPipe } from './common/duration.pipe';
 import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 import {HttpClientModule} from "@angular/common/http";
+import { EventEditComponent } from './events/event-edit/event-edit.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {HttpClientModule} from "@angular/common/http";
     ModalTriggerDirective,
     UpvoteComponent,
     LocationValidatorDirective,
+    EventEditComponent,
   ],
   imports: [
     BrowserModule,
