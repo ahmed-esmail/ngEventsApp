@@ -21,7 +21,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Demo 🎥
 
-<video src='https://github.com/ahmed-esmail/ngEventsApp/blob/master/demo/D.mp4' width=180/>
+[![Watch the video](https://img.youtube.com/vi/T-D1KVIuvjA/maxresdefault.jpg)]([https://youtu.be/T-D1KVIuvjA](https://github.com/ahmed-esmail/ngEventsApp/blob/master/demo/D.mp4)
 
 ## Run Locally 🏠
 
