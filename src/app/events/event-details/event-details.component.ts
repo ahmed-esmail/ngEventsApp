@@ -22,8 +22,8 @@ export class EventDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
-      this.event = data['event']
-      this.addMode = false
+      this.event = data['event'];
+      this.addMode = false;
     });
   }
 
@@ -34,7 +34,7 @@ export class EventDetailsComponent implements OnInit {
     );
     session.id = nextId + 1;
     this.event.sessions.push(session);
-    this.eventService.saveEvent(this.event);
+    this.eventService.saveEvent(this.event).subscribe();
     this.addMode = false;
   }
 }
